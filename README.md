@@ -15,23 +15,24 @@ brew "<formula>"
 
 ## Formulae
 
-### `node-builder`
+### `vpn-node-builder`
 
-Docker-hosted MyCS node builder CLI. Installs launchers:
+Docker-hosted MyCS VPN node builder CLI. Installs launchers:
 
 | Command | Image |
 |---------|--------|
-| `nb` | `ghcr.io/novassist-ai/node-builder:latest` |
-| `nb-dev` | `ghcr.io/novassist-ai/node-builder:dev` |
+| `vpnb` | `ghcr.io/novassist-ai/vpn-node-builder:latest` |
+| `vpnb-dev` | `ghcr.io/novassist-ai/vpn-node-builder:dev` |
 
 ```bash
-brew install --HEAD node-builder
-nb pull && nb --help
-nb-dev pull && nb-dev --help
+brew trust novassist-ai/tap   # once, if Homebrew requires tap trust
+brew install --HEAD vpn-node-builder
+vpnb-dev pull && vpnb-dev --help
+vpnb pull && vpnb --help
 ```
 
-Requires Docker. Override with `NB_IMAGE`. See
-[mycs-node node-builder docs](https://github.com/novassist-ai/mycs-node/tree/dev/apps/clients/node-builder/docs/installation.md).
+Requires Docker. Override with `VPNB_IMAGE`. See
+[mycs-node vpn-node-builder docs](https://github.com/novassist-ai/mycs-node/tree/dev/apps/clients/vpn-node-builder/docs/installation.md).
 
 ## Documentation
 
