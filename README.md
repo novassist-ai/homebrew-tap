@@ -27,8 +27,8 @@ Docker-hosted MyCS VPN node builder CLI. Installs launchers:
 ```bash
 brew trust novassist-ai/tap   # once, if Homebrew requires tap trust
 brew install --HEAD vpn-node-builder
-vpnb-dev pull && vpnb-dev --help
-vpnb pull && vpnb --help
+vpnb-dev --help               # auto-pulls :dev if missing
+vpnb-dev update               # force re-download
 ```
 
 Requires Docker. Override with `VPNB_IMAGE`. See

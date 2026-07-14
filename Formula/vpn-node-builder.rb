@@ -21,10 +21,11 @@ class VpnNodeBuilder < Formula
         vpnb       → ghcr.io/novassist-ai/vpn-node-builder:latest  (prod)
         vpnb-dev   → ghcr.io/novassist-ai/vpn-node-builder:dev     (dev tip)
 
-      Pull before first use (or after image updates):
+      The launcher auto-pulls the image when missing. Host helpers:
 
-        vpnb pull
-        vpnb-dev pull
+        vpnb-dev update   # delete local :dev image and re-pull
+        vpnb update       # delete local :latest image and re-pull
+        vpnb-dev pull     # docker pull without deleting first
 
       Override either channel with VPNB_IMAGE or VPN_NODE_BUILDER_IMAGE, e.g.:
 
