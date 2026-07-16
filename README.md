@@ -29,7 +29,7 @@ brew tap novassist-ai/tap
 brew install vpn-node-builder
 
 vpnb --help                   # prod :latest
-vpnb-dev --help               # dig tip :dev
+vpnb-dev --help               # dev tip :dev
 vpnb update                   # re-pull :latest
 vpnb-dev update               # re-pull :dev
 ```
@@ -44,7 +44,7 @@ Requires Docker. Override with `VPNB_IMAGE`. See
 [mycs-node vpn-node-builder docs](https://github.com/novassist-ai/mycs-node/tree/main/apps/clients/vpn-node-builder/docs/installation.md).
 
 The stable formula is bumped automatically from `mycs-node` after each successful
-prod vpn-node-builder release (`vpnb_X.Y.Z`). Dig image tips stay on `:dev` and
+prod vpn-node-builder release (`vpnb_X.Y.Z`). Dev image tips stay on `:dev` and
 do not change this formula.
 
 ## Documentation
