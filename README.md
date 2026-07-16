@@ -25,14 +25,27 @@ Docker-hosted MyCS VPN node builder CLI. Installs launchers:
 | `vpnb-dev` | `ghcr.io/novassist-ai/vpn-node-builder:dev` |
 
 ```bash
-brew trust novassist-ai/tap   # once, if Homebrew requires tap trust
+brew tap novassist-ai/tap
+brew install vpn-node-builder
+
+vpnb --help                   # prod :latest
+vpnb-dev --help               # dig tip :dev
+vpnb update                   # re-pull :latest
+vpnb-dev update               # re-pull :dev
+```
+
+Optional tip install of the launcher script from the `dev` branch:
+
+```bash
 brew install --HEAD vpn-node-builder
-vpnb-dev --help               # auto-pulls :dev if missing
-vpnb-dev update               # force re-download
 ```
 
 Requires Docker. Override with `VPNB_IMAGE`. See
-[mycs-node vpn-node-builder docs](https://github.com/novassist-ai/mycs-node/tree/dev/apps/clients/vpn-node-builder/docs/installation.md).
+[mycs-node vpn-node-builder docs](https://github.com/novassist-ai/mycs-node/tree/main/apps/clients/vpn-node-builder/docs/installation.md).
+
+The stable formula is bumped automatically from `mycs-node` after each successful
+prod vpn-node-builder release (`vpnb_X.Y.Z`). Dig image tips stay on `:dev` and
+do not change this formula.
 
 ## Documentation
 

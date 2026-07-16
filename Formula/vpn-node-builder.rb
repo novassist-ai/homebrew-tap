@@ -1,14 +1,18 @@
 class VpnNodeBuilder < Formula
   desc "MyCS VPN node builder CLI (Docker-hosted)"
   homepage "https://github.com/novassist-ai/mycs-node"
+  url "https://github.com/novassist-ai/mycs-node/archive/refs/tags/vpnb_0.0.0.tar.gz"
+  sha256 "2cc607ef23d2b4a86be7dc21ee4f1c9046d45c0108bca04675f4574b437f6323"
   license "GPL-3.0-or-later"
   head "https://github.com/novassist-ai/mycs-node.git", branch: "dev"
 
-  depends_on "docker" => :run
+  depends_on "docker"
 
   def install
     launcher = "apps/clients/vpn-node-builder/scripts/vpnb-docker"
-    odie "vpn-node-builder must be built from the mycs-node repository checkout" unless buildpath.join(launcher).exist?
+    unless buildpath.join(launcher).exist?
+      odie "vpn-node-builder must be built from the mycs-node repository checkout"
+    end
 
     # Same script; basename selects channel (vpnb → :latest, vpnb-dev → :dev).
     bin.install launcher => "vpnb"
@@ -29,13 +33,15 @@ class VpnNodeBuilder < Formula
 
       Override either channel with VPNB_IMAGE or VPN_NODE_BUILDER_IMAGE, e.g.:
 
-        export VPNB_IMAGE=ghcr.io/novassist-ai/vpn-node-builder:0.0.3
+        export VPNB_IMAGE=ghcr.io/novassist-ai/vpn-node-builder:0.0.0
+
+      Tip builds of the launcher script: brew install --HEAD vpn-node-builder
     EOS
   end
 
   test do
-    assert_predicate bin/"vpnb", :exist?
-    assert_predicate bin/"vpnb-dev", :exist?
+    assert_path_exists bin/"vpnb"
+    assert_path_exists bin/"vpnb-dev"
     assert_match "ghcr.io/novassist-ai/vpn-node-builder",
                  File.read(bin/"vpnb")
   end
