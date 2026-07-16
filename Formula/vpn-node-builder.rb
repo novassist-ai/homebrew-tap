@@ -1,8 +1,8 @@
 class VpnNodeBuilder < Formula
   desc "MyCS VPN node builder CLI (Docker-hosted)"
   homepage "https://github.com/novassist-ai/mycs-node"
-  url "https://github.com/novassist-ai/mycs-node/archive/refs/tags/vpnb_0.0.0.tar.gz"
-  sha256 "2cc607ef23d2b4a86be7dc21ee4f1c9046d45c0108bca04675f4574b437f6323"
+  url "https://github.com/novassist-ai/mycs-node/archive/refs/tags/vpnb_0.1.0.tar.gz"
+  sha256 "0b0f9d824bdc6c568bafcdcb244e01a49d6acf08a50bf8a2eb3f916cd794a7fb"
   license "GPL-3.0-or-later"
   head "https://github.com/novassist-ai/mycs-node.git", branch: "dev"
 
@@ -33,7 +33,7 @@ class VpnNodeBuilder < Formula
 
       Override either channel with VPNB_IMAGE or VPN_NODE_BUILDER_IMAGE, e.g.:
 
-        export VPNB_IMAGE=ghcr.io/novassist-ai/vpn-node-builder:0.0.0
+        export VPNB_IMAGE=ghcr.io/novassist-ai/vpn-node-builder:0.1.0
 
       Tip builds of the launcher script: brew install --HEAD vpn-node-builder
     EOS
