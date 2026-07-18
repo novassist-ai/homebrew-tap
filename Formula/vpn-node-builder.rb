@@ -2,7 +2,7 @@ class VpnNodeBuilder < Formula
   desc "MyCS VPN node builder CLI (Docker-hosted)"
   homepage "https://github.com/novassist-ai/mycs-node"
   url "https://github.com/novassist-ai/mycs-node/archive/refs/tags/vpnb_0.4.0.tar.gz"
-  sha256 "d800627be68dc634efea7e30e6b4f88475f436682c40535ff3d24a7ef88d9834"
+  sha256 "b1196f0fc76794526d636e80249dabbfa6166138c87e37105384ef8888e34389"
   license "GPL-3.0-or-later"
   head "https://github.com/novassist-ai/mycs-node.git", branch: "dev"
 
