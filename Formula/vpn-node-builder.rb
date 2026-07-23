@@ -16,6 +16,10 @@ class VpnNodeBuilder < Formula
 
     # Same script; basename selects channel (vpnb → :latest, vpnb-dev → :dev).
     bin.install launcher => "vpnb"
+    # Embed formula version so `vpnb --version` reports the Homebrew install.
+    inreplace bin/"vpnb",
+              'VPNB_LAUNCHER_VERSION="${VPNB_LAUNCHER_VERSION:-}"',
+              "VPNB_LAUNCHER_VERSION=\"#{version}\""
     bin.install_symlink "vpnb" => "vpnb-dev"
   end
 
@@ -30,6 +34,7 @@ class VpnNodeBuilder < Formula
         vpnb-dev update   # delete local :dev image and re-pull
         vpnb update       # delete local :latest image and re-pull
         vpnb-dev pull     # docker pull without deleting first
+        vpnb --version    # Homebrew formula + docker image versions
 
       Override either channel with VPNB_IMAGE or VPN_NODE_BUILDER_IMAGE, e.g.:
 
@@ -44,5 +49,6 @@ class VpnNodeBuilder < Formula
     assert_path_exists bin/"vpnb-dev"
     assert_match "ghcr.io/novassist-ai/vpn-node-builder",
                  File.read(bin/"vpnb")
+    assert_match(/VPNB_LAUNCHER_VERSION="#{version}"/, File.read(bin/"vpnb"))
   end
 end
